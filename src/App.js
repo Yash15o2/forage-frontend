@@ -10,7 +10,7 @@ function App() {
 }
 
 const HelloWorld = styled.p`
-	font-family: ${(props) => props.theme.fonts.green};
+	font-family: ${(props) => props.theme.fonts.primary};
 	color: ${(props) => props.theme.colors.green};
 `;
 export default App;
