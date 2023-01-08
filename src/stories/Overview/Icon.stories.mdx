@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/addon-docs';
+import Icons from './components/Icons';
+
+<Meta title="Overview/Icons" />
+
+<style>
+	{`
+        .sidebar-section {
+            font-size: 0.8rem;
+            height: 100%;
+            width: 160px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            padding: 30px;
+            background-color: #343558;
+            color: white;
+        }
+
+        .sidebar-section span {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .sidebar-section span:hover {
+            cursor: pointer;
+        }
+
+        .icons-section {
+            margin-top: -30px;
+            margin-left: 220px;
+            padding: 0px 5px;
+        }
+
+        .icons-section input{
+            margin-bottom: 20px;
+            margin-top: 10px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            width: 100%
+        }
+
+        .icons-section li {
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+    
+    `}
+</style>
+
+<Icons />

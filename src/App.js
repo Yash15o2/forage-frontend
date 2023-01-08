@@ -1,16 +1,20 @@
 import './App.css';
 import styled from 'styled-components';
+import Rate from './components/common/Rate';
 
 function App() {
 	return (
 		<div className="App">
-			<HelloWorld>Hello World</HelloWorld>
+			<HelloWorld>
+				<Rate />
+			</HelloWorld>
 		</div>
 	);
 }
 
-const HelloWorld = styled.p`
-	font-family: ${(props) => props.theme.fonts.primary};
-	color: ${(props) => props.theme.colors.green};
+const HelloWorld = styled.div`
+	display: flex;
+	gap: 10px;
 `;
+
 export default App;
