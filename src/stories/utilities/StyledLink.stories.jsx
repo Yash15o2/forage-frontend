@@ -1,15 +1,14 @@
 import React from 'react';
-import ProfileImage from '../../components/common/ProfileImage';
 import Center from '../Decorators/Center';
 import ThemeDecorator from '../Decorators/ThemeProvider';
+import StyledLink from '../../components/utilities/StyledLink';
 
 export default {
-	title: 'Components/ProfileImage',
-	component: ProfileImage,
+	title: 'Utilities/StyledLink',
+	component: StyledLink,
 	args: {
-		...ProfileImage.defaultProps,
+		...StyledLink.defaultProps,
 	},
-	argTypes: {},
 	decorators: [
 		(Story) => (
 			<ThemeDecorator>
@@ -19,9 +18,11 @@ export default {
 	],
 };
 
-const Template = (args) => <ProfileImage {...args}></ProfileImage>;
+const Template = (args) => <StyledLink {...args} />;
 
 export const Basic = Template.bind({});
 Basic.args = {
-	size: '100px',
+	size: '45px',
+	text: '40px',
+	rowDirection: false,
 };

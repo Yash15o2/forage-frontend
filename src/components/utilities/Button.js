@@ -14,7 +14,7 @@ const StyledButton = styled.button`
 	font-style: normal;
 	font-weight: 500;
 	font-size: ${(props) => (props.fontSize ? props.fontSize : '16px')};
-	padding: 10px 18px;
+	padding: 10px 30px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
