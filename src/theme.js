@@ -10,6 +10,8 @@ const theme = {
 		},
 		neutral: {
 			100: '#F5F7FA',
+			200: '#9D9D9D',
+			300: '#8D8E9F',
 		},
 		generic: {
 			white: '#FFFFFF',
@@ -21,6 +23,9 @@ const theme = {
 		pink: {
 			100: '#FF316D',
 			200: '#FF316D',
+		},
+		danger: {
+			100: '#EF4444',
 		},
 	},
 	fonts: {

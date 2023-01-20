@@ -120,7 +120,7 @@ const StyledLogo = styled.div`
 	font-size: ${(props) => props.text};
 	color: ${(props) => props.theme.colors.secondary['200']};
 	font-weight: bold;
-	gap: 0px;
+	gap: 8px;
 
 	${(props) =>
 		props.rowDirection &&

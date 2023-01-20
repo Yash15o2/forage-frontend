@@ -91,7 +91,7 @@ ProfileImage.propTypes = {
 
 ProfileImage.defaultProps = {
 	size: '100px',
-	name: 'Yash Thakur',
+	name: 'Person Name',
 	hoverable: true,
 };
 
