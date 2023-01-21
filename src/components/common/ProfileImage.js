@@ -14,7 +14,7 @@ function ProfileImage(props) {
 					}
 					alt="profile_img"
 				/>
-				{props.hoverable && (
+				{props.changeImage && (
 					<StyledPencil {...props}>
 						<Icon iconName="FaPen" size="25px" color="white" />
 					</StyledPencil>
@@ -34,15 +34,10 @@ const StyledPencil = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	opacity: 0;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background: ${(props) => props.theme.colors.generic.black + '77'};
-	transition: 0.4s ease-in-out;
-	&:hover {
-		opacity: 1;
-	}
 `;
 
 const StyledProfile = styled.div`
@@ -85,14 +80,14 @@ const StyledImage = styled.div`
 ProfileImage.propTypes = {
 	size: PropTypes.string,
 	name: PropTypes.string,
-	hoverable: PropTypes.bool,
+	changeImage: PropTypes.bool,
 	onClick: PropTypes.func,
 };
 
 ProfileImage.defaultProps = {
 	size: '100px',
 	name: 'Person Name',
-	hoverable: true,
+	changeImage: false,
 };
 
 export default ProfileImage;

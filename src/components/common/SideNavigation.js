@@ -6,7 +6,7 @@ import Button from '../utilities/Button';
 import Icon from '../utilities/Icon';
 import Rate from '../common/Rate';
 
-function SideNavigation() {
+function SideNavigation(props) {
 	return (
 		<StyledSideNavigation>
 			<Logo className="logo" size="55px" text="35px" />
@@ -17,11 +17,15 @@ function SideNavigation() {
 				</StyledNavButton>
 
 				<StyledNavButton navButton>
-					<Icon iconName="FaHistory" size="20px" />
-					<div className="text">History</div>
+					<Icon iconName={props.secondIcon} size="20px" />
+					<div className="text">{props.secondOption}</div>
 				</StyledNavButton>
 
-				<div className="profile"></div>
+				<div className="profile">
+					<StyledNavButton navButton>
+						<Icon iconName="IoPerson" size="20px" />
+					</StyledNavButton>
+				</div>
 
 				<StyledNavButton navButton>
 					<Icon iconName="FaHeadphonesAlt" size="20px" />
@@ -54,9 +58,16 @@ const StyledSideNavigation = styled.div`
 	height: 100vh;
 	width: fit-content;
 
+	.profile {
+		display: none;
+	}
+
 	@media only screen and (max-width: 1000px) {
 		.logo {
 			display: none;
+		}
+		.profile {
+			display: block;
 		}
 	}
 `;
@@ -76,7 +87,8 @@ const StyledNavButton = styled(Button)`
 		font-family: ${(props) => props.theme.fonts.primary};
 	}
 
-	&:hover {
+	&:hover,
+	&:focus {
 		color: ${(props) => props.theme.colors.primary['200']};
 	}
 
@@ -108,5 +120,16 @@ const StyledRateContainer = styled.div`
 		}
 	}
 `;
+
+SideNavigation.propTypes = {
+	secondOption: PropTypes.string,
+	secondIcon: PropTypes.string,
+};
+
+SideNavigation.defaultProps = {
+	secondOption: 'History',
+	secondIcon: 'FaHistory',
+	// secondIcon: 'MdAddToPhotos',
+};
 
 export default SideNavigation;

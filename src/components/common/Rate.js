@@ -36,6 +36,7 @@ const StyledRateContainer = styled.div`
 	gap: 10px;
 	box-shadow: 2px 2px 20px ${(props) => props.theme.colors.generic.black + '15'};
 	color: ${(props) => props.theme.colors.secondary['200']};
+	background-color: ${(props) => props.theme.colors.generic.white};
 
 	p {
 		width: 150px;
