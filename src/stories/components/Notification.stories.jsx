@@ -1,13 +1,13 @@
 import React from 'react';
-import SideNavigation from '../../components/common/SideNavigation';
+import Notification from '../../components/common/Notification';
 import Center from '../Decorators/Center';
 import ThemeDecorator from '../Decorators/ThemeProvider';
 
 export default {
-	title: 'Components/SideNavigation',
-	component: SideNavigation,
+	title: 'Components/Notification',
+	component: Notification,
 	args: {
-		...SideNavigation.defaultProps,
+		...Notification.defaultProps,
 	},
 	decorators: [
 		(Story) => (
@@ -18,9 +18,11 @@ export default {
 	],
 };
 
-const Template = (args) => <SideNavigation {...args}></SideNavigation>;
+const Template = (args) => <Notification {...args}></Notification>;
 
 export const Basic = Template.bind({});
 Basic.args = {
-	userType: 'ngo',
+	notificationType: 'timeout',
+	time: '10:05 AM',
+	date: '12/01/2023',
 };
