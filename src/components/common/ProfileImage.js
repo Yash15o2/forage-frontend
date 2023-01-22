@@ -8,7 +8,7 @@ function ProfileImage(props) {
 		<StyledProfile>
 			<StyledImage {...props}>
 				<img
-					// src={require('../../assets/default_profile.png')}
+					// src={require(`${props.src}`)}
 					src={
 						props.src ? props.src : require('../../assets/default_profile.png')
 					}
@@ -56,7 +56,7 @@ const StyledProfile = styled.div`
 
 const StyledImage = styled.div`
 	cursor: pointer;
-	border: 10px solid ${(props) => props.theme.colors.primary['100']};
+	border: 7px solid ${(props) => props.theme.colors.primary['100']};
 	box-shadow: 0px 10px 20px
 		${(props) => props.theme.colors.primary['100'] + '44'};
 	width: ${(props) => props.size};

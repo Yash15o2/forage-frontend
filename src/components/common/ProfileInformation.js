@@ -28,7 +28,7 @@ const StyledInfoContainer = styled.div`
 	.description {
 		margin: 0;
 		font-weight: 600;
-		font-size: 1.4rem;
+		font-size: 1.2rem;
 		font-family: ${(props) => props.theme.fonts.primary};
 	}
 `;

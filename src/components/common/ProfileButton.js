@@ -10,19 +10,23 @@ function ProfileButton(props) {
 			<div className="icon-container">
 				<Icon size="24px" iconName={props.iconName} />
 			</div>
-			{props.name}
+			<p>{props.name}</p>
 		</StyledProfileButton>
 	);
 }
 
 const StyledProfileButton = styled(Button)`
 	background: ${(props) => props.theme.colors.neutral['100']};
+	padding: 18px 80px 18px 25px;
+	border-radius: 14px;
 	color: ${(props) => props.theme.colors.secondary['200']};
 	font-family: ${(props) => props.theme.fonts.primary};
 	font-weight: 600;
-	padding: 18px 80px 18px 25px;
-	border-radius: 14px;
-	font-size: 0.95rem;
+
+	p {
+		font-size: 0.9rem;
+		margin: 0;
+	}
 
 	.icon-container {
 		display: flex;

@@ -8,7 +8,7 @@ import ProfileInformation from '../common/ProfileInformation';
 function DonorProfile() {
 	return (
 		<StyledProfileContainer>
-			<ProfileImage />
+			<ProfileImage size="80px" />
 			<ProfileInfoContainer>
 				<ProfileInformation />
 				<ProfileInformation heading="Account status" description="Active" />
