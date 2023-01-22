@@ -5,6 +5,7 @@ import DonorDashboard from './DonorDashboard';
 import UserProfile from '../common/UserProfile';
 import Button from '../utilities/Button';
 import Icon from '../utilities/Icon';
+import NotificationPage from '../common/NotificationPage';
 
 function DonorLandingPage() {
 	return (
@@ -20,9 +21,10 @@ function DonorLandingPage() {
 						<Icon iconName="FaPen" size="26px" />
 					</StyledCreatePostButton>
 				</StyledPostContainer>
-				<StyledDonorProfile>
-					<UserProfile />
-				</StyledDonorProfile>
+				<StyledDonorFeatureContainer>
+					{/* <UserProfile /> */}
+					<NotificationPage />
+				</StyledDonorFeatureContainer>
 			</StyledMainContainer>
 		</StyledDonorPage>
 	);
@@ -90,10 +92,10 @@ const StyledPostContainer = styled.div`
 	}
 `;
 
-const StyledDonorProfile = styled.div`
+const StyledDonorFeatureContainer = styled.div`
 	width: fit-content;
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: center;
 	padding: 30px 0px;
 	width: fit-content;

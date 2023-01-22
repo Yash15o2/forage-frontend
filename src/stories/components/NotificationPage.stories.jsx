@@ -1,13 +1,13 @@
 import React from 'react';
-import Notification from '../../components/common/Notification';
+import NotificationPage from '../../components/common/NotificationPage';
 import Center from '../Decorators/Center';
 import ThemeDecorator from '../Decorators/ThemeProvider';
 
 export default {
-	title: 'Components/Notification',
-	component: Notification,
+	title: 'Components/NotificationPage',
+	component: NotificationPage,
 	args: {
-		...Notification.defaultProps,
+		...NotificationPage.defaultProps,
 	},
 	decorators: [
 		(Story) => (
@@ -18,11 +18,7 @@ export default {
 	],
 };
 
-const Template = (args) => <Notification {...args}></Notification>;
+const Template = (args) => <NotificationPage {...args}></NotificationPage>;
 
 export const Basic = Template.bind({});
-Basic.args = {
-	notificationType: 'timeout',
-	time: '10:05 AM',
-	date: '12/01/2023',
-};
+Basic.args = {};

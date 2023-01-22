@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Icon from '../utilities/Icon';
+import Icon from './Icon';
 
 function Notification(props) {
 	return (
@@ -9,17 +9,17 @@ function Notification(props) {
 			<StyledNotification className={props.notificationType + '-bg'}>
 				{props.notificationType === 'karma' && (
 					<StyledNotificationIcon className={props.notificationType}>
-						<Icon iconName="ImCoinEuro" size="30px" color="#fff" />
+						<Icon iconName="ImCoinEuro" size="25px" color="#fff" />
 					</StyledNotificationIcon>
 				)}
 				{props.notificationType === 'accept' && (
 					<StyledNotificationIcon className={props.notificationType}>
-						<Icon iconName="FaRegCheckSquare" size="30px" color="#fff" />
+						<Icon iconName="FaRegCheckSquare" size="25px" color="#fff" />
 					</StyledNotificationIcon>
 				)}
 				{props.notificationType === 'timeout' && (
 					<StyledNotificationIcon className={props.notificationType}>
-						<Icon iconName="IoStopwatchOutline" size="30px" color="#fff" />
+						<Icon iconName="IoStopwatchOutline" size="25px" color="#fff" />
 					</StyledNotificationIcon>
 				)}
 				<StyledMessage>
@@ -76,7 +76,7 @@ const StyledNotification = styled.div`
 	justify-content: space-between;
 	gap: 15px;
 	border-radius: 16px;
-	padding: 20px 20px;
+	padding: 15px;
 	width: fit-content;
 
 	.karma {
@@ -98,7 +98,7 @@ const StyledNotificationIcon = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 12px;
+	padding: 10px;
 	border-radius: 60px;
 `;
 
@@ -110,12 +110,13 @@ const StyledHeadingContainer = styled.div`
 		font-family: ${(props) => props.theme.fonts.primary};
 		margin: 0;
 		color: ${(props) => props.theme.colors.secondary['200']};
+		font-size: 0.8rem;
 	}
 
 	span {
 		font-family: ${(props) => props.theme.fonts.secondary};
 		color: ${(props) => props.theme.colors.secondary['100']};
-		font-size: 0.7rem;
+		font-size: 0.65rem;
 		font-weight: 500;
 	}
 `;
@@ -129,8 +130,8 @@ const StyledMessage = styled.div`
 		margin: 0;
 		font-family: ${(props) => props.theme.fonts.secondary};
 		color: ${(props) => props.theme.colors.secondary['100']};
-		font-size: 0.8rem;
-		width: 250px;
+		font-size: 0.75rem;
+		width: 220px;
 	}
 `;
 
