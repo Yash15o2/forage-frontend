@@ -51,6 +51,9 @@ const StyledProfile = styled.div`
 		margin: 0;
 		font-weight: 600;
 		font-size: ${(props) => (props.fontSize ? props.fontSize : '20px')};
+		width: 300px;
+		word-wrap: break-word;
+		text-align: center;
 	}
 `;
 

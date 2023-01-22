@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import SideNavigation from '../common/SideNavigation';
 import DonorDashboard from './DonorDashboard';
-import DonorProfile from './DonorProfile';
+import UserProfile from '../common/UserProfile';
+import Button from '../utilities/Button';
+import Icon from '../utilities/Icon';
 
 function DonorLandingPage() {
 	return (
@@ -14,9 +16,12 @@ function DonorLandingPage() {
 			<StyledMainContainer>
 				<StyledPostContainer>
 					<DonorDashboard />
+					<StyledCreatePostButton>
+						<Icon iconName="FaPen" size="26px" />
+					</StyledCreatePostButton>
 				</StyledPostContainer>
 				<StyledDonorProfile>
-					<DonorProfile />
+					<UserProfile />
 				</StyledDonorProfile>
 			</StyledMainContainer>
 		</StyledDonorPage>
@@ -98,6 +103,18 @@ const StyledDonorProfile = styled.div`
 	}
 
 	@media only screen and (max-width: 800px) {
+		display: none;
+	}
+`;
+
+const StyledCreatePostButton = styled(Button)`
+	position: absolute;
+	bottom: -5px;
+	right: 5px;
+	border-radius: 60px;
+	padding: 10px 40px;
+
+	@media only screen and (min-width: 800px) {
 		display: none;
 	}
 `;

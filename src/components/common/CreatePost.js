@@ -8,11 +8,7 @@ function CreatePost() {
 		<StyledCreatePostContainer>
 			<StyledCreatePost>
 				<h4>Create post</h4>
-				<pre>
-					Fill in the information about
-					<br />
-					food you have.
-				</pre>
+				<p>Fill in the information about food you have.</p>
 			</StyledCreatePost>
 			<StyledPostButton>
 				<Icon iconName="FaPen" size="26px" />
@@ -37,19 +33,21 @@ const StyledCreatePost = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 25px 54px;
+	padding: 25px 44px;
 
 	h4 {
 		margin: 0;
 		font-size: 1.05rem;
 	}
 
-	pre {
+	p {
 		font-size: 0.8rem;
 		color: ${(props) => props.theme.colors.secondary['200'] + '99'};
-		width: 180px;
+		width: 200px;
 		text-align: center;
 		line-height: 20px;
+		word-wrap: break-word;
+		font-weight: 500;
 	}
 `;
 

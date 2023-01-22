@@ -22,14 +22,12 @@ function DonorDashboard() {
 					<StyledPendingContainer>
 						<p className="pending post-heading">Pending</p>
 						<DonorPost />
-						<DonorPost />
-						<DonorPost />
 					</StyledPendingContainer>
 
 					<StyledWaitForAcknowledgement>
-						<p className="wait-for-ack post-heading">Wait for acknowledge</p>
-						<DonorPost accepted />
-						<DonorPost accepted />
+						<p className="wait-for-ack post-heading">
+							Waiting for acknowledgement
+						</p>
 						<DonorPost accepted />
 						<StyledEmptySpace />
 					</StyledWaitForAcknowledgement>
