@@ -1,24 +1,18 @@
 import './App.css';
-import styled from 'styled-components';
-import LoginForm from './components/common/login/LoginForm';
-import BackgroundTemplate from './components/common/BackgroundTemplate';
-import SideNavigation from './components/common/SideNavigation';
+// import styled from 'styled-components';
+import DonorLandingPage from './components/donor/DonorLandingPage';
 
 function App() {
 	return (
 		<div className="App">
-			<SideNavigation />
+			<DonorLandingPage />
 		</div>
 	);
 }
 
-const HelloWorld = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 100%;
-	height: 100vh;
-	gap: 10px;
-`;
+// const HelloWorld = styled.div`
+// 	width: 100%;
+// 	height: 100vh;
+// `;
 
 export default App;

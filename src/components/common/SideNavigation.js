@@ -6,27 +6,57 @@ import Button from '../utilities/Button';
 import Icon from '../utilities/Icon';
 import Rate from '../common/Rate';
 
-function SideNavigation() {
+function SideNavigation(props) {
 	return (
 		<StyledSideNavigation>
 			<Logo className="logo" size="55px" text="35px" />
 			<NavigationContainer>
-				<StyledNavButton navButton>
-					<Icon iconName="RiLayout2Fill" size="20px" />
-					<div className="text">Dashboard</div>
-				</StyledNavButton>
+				{props.userType === 'admin' && (
+					<>
+						<StyledNavButton navButton>
+							<Icon iconName="FaChartBar" size="20px" />
+							<div className="text">Statistics</div>
+						</StyledNavButton>
 
-				<StyledNavButton navButton>
-					<Icon iconName="FaHistory" size="20px" />
-					<div className="text">History</div>
-				</StyledNavButton>
+						<StyledNavButton navButton>
+							<Icon iconName="HiUserGroup" size="20px" />
+							<div className="text">Profiles</div>
+						</StyledNavButton>
+					</>
+				)}
+				{props.userType !== 'admin' && (
+					<>
+						<StyledNavButton navButton>
+							<Icon iconName="RiLayout2Fill" size="20px" />
+							<div className="text">Dashboard</div>
+						</StyledNavButton>
 
-				<div className="profile"></div>
+						{props.userType === 'donor' && (
+							<StyledNavButton navButton>
+								<Icon iconName="FaHistory" size="20px" />
+								<div className="text">History</div>
+							</StyledNavButton>
+						)}
 
-				<StyledNavButton navButton>
-					<Icon iconName="FaHeadphonesAlt" size="20px" />
-					<div className="text">Support</div>
-				</StyledNavButton>
+						{props.userType === 'ngo' && (
+							<StyledNavButton navButton>
+								<Icon iconName="MdAddToPhotos" size="20px" />
+								<div className="text">Added</div>
+							</StyledNavButton>
+						)}
+
+						<div className="profile">
+							<StyledNavButton navButton>
+								<Icon iconName="IoPerson" size="20px" />
+							</StyledNavButton>
+						</div>
+
+						<StyledNavButton navButton>
+							<Icon iconName="FaHeadphonesAlt" size="20px" />
+							<div className="text">Support</div>
+						</StyledNavButton>
+					</>
+				)}
 
 				<StyledNavButton navButton>
 					<Icon iconName="MdOutlineLogout" size="20px" />
@@ -34,14 +64,16 @@ function SideNavigation() {
 				</StyledNavButton>
 			</NavigationContainer>
 
-			<StyledRateContainer>
-				<div className="star">
-					<Icon iconName="HiStar" size="20px" />
-				</div>
-				<div className="rate">
-					<Rate />
-				</div>
-			</StyledRateContainer>
+			{props.userType !== 'admin' && (
+				<StyledRateContainer>
+					<div className="star">
+						<Icon iconName="HiStar" size="20px" />
+					</div>
+					<div className="rate">
+						<Rate />
+					</div>
+				</StyledRateContainer>
+			)}
 		</StyledSideNavigation>
 	);
 }
@@ -54,9 +86,16 @@ const StyledSideNavigation = styled.div`
 	height: 100vh;
 	width: fit-content;
 
+	.profile {
+		display: none;
+	}
+
 	@media only screen and (max-width: 1000px) {
 		.logo {
 			display: none;
+		}
+		.profile {
+			display: block;
 		}
 	}
 `;
@@ -76,7 +115,8 @@ const StyledNavButton = styled(Button)`
 		font-family: ${(props) => props.theme.fonts.primary};
 	}
 
-	&:hover {
+	&:hover,
+	&:focus {
 		color: ${(props) => props.theme.colors.primary['200']};
 	}
 
@@ -108,5 +148,13 @@ const StyledRateContainer = styled.div`
 		}
 	}
 `;
+
+SideNavigation.propTypes = {
+	userType: PropTypes.string,
+};
+
+SideNavigation.defaultProps = {
+	userType: 'donor',
+};
 
 export default SideNavigation;
