@@ -17,12 +17,33 @@ function LoginForm() {
 			.required('Please enter your password.'),
 	});
 
+	const handleLogin = (values) => {
+        fetch('https://forage-server.onrender.com/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(values)
+        }).then(res => res.json())
+			.then(data => {
+				console.log(data);
+			})
+			.catch(err => {
+				console.log(err);
+        })
+    }
+
 	return (
 		<StyledFormContainer>
 			<Formik
 				initialValues={{ email: '', password: '' }}
 				validationSchema={validationSchema}
-				onSubmit={(values, { setSubmitting }) => {}}
+				onSubmit={(values, { setSubmitting }) => {
+					setTimeout(() => {
+              			handleLogin(values);
+              			setSubmitting(false);
+              		}, 400);
+				}}
 			>
 				{({ values, touched, errors, isSubmitting }) => (
 					<StyledForm>
