@@ -6,10 +6,14 @@ import Button from '../utilities/Button';
 import Icon from '../utilities/Icon';
 import Rate from '../common/Rate';
 
+import { useLocation, useNavigate } from 'react-router-dom';
+
 function SideNavigation(props) {
+	const { pathname } = useLocation();
+	const navigate = useNavigate();
 	return (
 		<StyledSideNavigation>
-			<Logo className="logo" size="55px" text="35px" />
+			<Logo className="logo" size="40px" text="30px" />
 			<NavigationContainer>
 				{props.userType === 'admin' && (
 					<>
@@ -26,13 +30,21 @@ function SideNavigation(props) {
 				)}
 				{props.userType !== 'admin' && (
 					<>
-						<StyledNavButton navButton>
+						<StyledNavButton
+							navButton
+							onClick={() => navigate('/')}
+							active={pathname === '/'}
+						>
 							<Icon iconName="RiLayout2Fill" size="20px" />
 							<div className="text">Dashboard</div>
 						</StyledNavButton>
 
 						{props.userType === 'donor' && (
-							<StyledNavButton navButton>
+							<StyledNavButton
+								navButton
+								onClick={() => navigate('/donorhistory')}
+								active={pathname === '/donorhistory'}
+							>
 								<Icon iconName="FaHistory" size="20px" />
 								<div className="text">History</div>
 							</StyledNavButton>
@@ -46,7 +58,11 @@ function SideNavigation(props) {
 						)}
 
 						<div className="profile">
-							<StyledNavButton navButton>
+							<StyledNavButton
+								navButton
+								onClick={() => navigate('/donorprofile')}
+								active={pathname === '/donerprofile'}
+							>
 								<Icon iconName="IoPerson" size="20px" />
 							</StyledNavButton>
 						</div>
@@ -94,6 +110,9 @@ const StyledSideNavigation = styled.div`
 		.logo {
 			display: none;
 		}
+	}
+
+	@media only screen and (max-width: 800px) {
 		.profile {
 			display: block;
 		}

@@ -1,12 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import Button from '../utilities/Button';
 
 function DonorPost(props) {
 	return (
 		<StyledDonorPost>
-			<StyledInfoContainer>
+			<StyledInfoContainer {...props}>
 				<CreatedTimeDate>
 					<p className="heading">Created at</p>
 					<p className="text">
@@ -23,14 +23,14 @@ function DonorPost(props) {
 
 				{!props.accepted && <div className="time">Time left 01:23:34</div>}
 
-				{!props.accepted && (
+				{!props.accepted && !props.isAcknowledged && (
 					<StyledButtonContainer>
 						<StyledButton>View</StyledButton>
 						<StyledButton inverted>Cancel</StyledButton>
 					</StyledButtonContainer>
 				)}
 
-				{props.accepted && (
+				{props.accepted && !props.isAcknowledged && (
 					<StyledButtonContainer>
 						<StyledButton expand>Acknowledge</StyledButton>
 					</StyledButtonContainer>
@@ -64,6 +64,12 @@ const StyledInfoContainer = styled.div`
 		font-size: 0.7rem;
 		font-weight: 500;
 	}
+
+	${(props) =>
+		props.isAcknowledged &&
+		css`
+			justify-content: space-around;
+		`}
 `;
 
 const StyledPostImage = styled.div`
@@ -112,6 +118,7 @@ const StyledButton = styled(Button)`
 `;
 
 DonorPost.propTypes = {
+	isAcknowledged: PropTypes.bool,
 	accepted: PropTypes.bool,
 	time: PropTypes.string,
 	date: PropTypes.string,
@@ -119,6 +126,7 @@ DonorPost.propTypes = {
 };
 
 DonorPost.defaultProps = {
+	isAcknowledged: false,
 	accepted: false,
 	time: '12:30 PM',
 	date: '21/10/2023',

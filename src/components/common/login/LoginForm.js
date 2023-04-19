@@ -1,4 +1,4 @@
-import { Formik, Field } from 'formik';
+import { Formik, Field, Form } from 'formik';
 import React from 'react';
 import styled from 'styled-components';
 import Logo from '../../utilities/Logo';
@@ -22,7 +22,9 @@ function LoginForm() {
 			<Formik
 				initialValues={{ email: '', password: '' }}
 				validationSchema={validationSchema}
-				onSubmit={(values, { setSubmitting }) => {}}
+				onSubmit={(values, { setSubmitting }) => {
+					console.log(values);
+				}}
 			>
 				{({ values, touched, errors, isSubmitting }) => (
 					<StyledForm>
@@ -78,7 +80,7 @@ const StyledFormContainer = styled.div`
 	width: 100%;
 `;
 
-const StyledForm = styled.div`
+const StyledForm = styled(Form)`
 	display: flex;
 	flex-direction: column;
 	align-items: center;

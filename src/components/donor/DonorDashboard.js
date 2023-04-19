@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import greetingTime from 'greeting-time';
 import DonorPost from './DonorPost';
+import Icon from '../utilities/Icon';
+import Button from '../utilities/Button';
 // import Logo from '../utilities/Logo';
 
 function DonorDashboard() {
@@ -32,11 +34,27 @@ function DonorDashboard() {
 						<StyledEmptySpace />
 					</StyledWaitForAcknowledgement>
 				</StyledPostsScroll>
+
+				<StyledCreatePostButton>
+					<Icon iconName="FaPen" size="26px" />
+				</StyledCreatePostButton>
 			</StyledDonorDashboard>
 			<StyledEmptyColSpace />
 		</StyledDashboardContainer>
 	);
 }
+
+const StyledCreatePostButton = styled(Button)`
+	position: absolute;
+	bottom: -5px;
+	right: 5px;
+	border-radius: 60px;
+	padding: 10px 40px;
+
+	@media only screen and (min-width: 800px) {
+		display: none;
+	}
+`;
 
 const StyledDashboardContainer = styled.div`
 	height: 100%;

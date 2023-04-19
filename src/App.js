@@ -1,18 +1,21 @@
 import './App.css';
-// import styled from 'styled-components';
-import DonorLandingPage from './components/donor/DonorLandingPage';
+import { routes, titles } from './routes';
+import { useLocation, useRoutes } from 'react-router';
+import { useEffect } from 'react';
 
-function App() {
-	return (
-		<div className="App">
-			<DonorLandingPage />
-		</div>
-	);
+function useTitle() {
+	let location = useLocation();
+	useEffect(() => {
+		const title = titles[location.pathname.toLowerCase()];
+		document.title = title ? title : 'Page 404';
+		window.scrollTo(0, 0);
+	}, [location]);
 }
 
-// const HelloWorld = styled.div`
-// 	width: 100%;
-// 	height: 100vh;
-// `;
+function App() {
+	useTitle();
+	const element = useRoutes(routes);
+	return <div className="App">{element}</div>;
+}
 
 export default App;
